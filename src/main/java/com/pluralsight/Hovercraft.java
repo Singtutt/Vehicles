@@ -4,16 +4,14 @@ public class Hovercraft extends Vehicle{
     private boolean waterResistance;
     private boolean isAfloat;
 
-    public Hovercraft(int fuelCapacity, int seatCapacity, int cargoCapacity, int speed) {
-        super.setFuelCapacity(fuelCapacity);
-        super.setSeatCapacity(seatCapacity);
-        super.setCargoCapacity(cargoCapacity);
-        super.setSpeed(speed);
-        this.waterResistance = false; // Resistance only on "rough" waters. Initially calm...
-        this.isAfloat = false; // Initially docked. (Not afloat till it touches water)
+    public Hovercraft(String color, int fuelCapacity, int seatCapacity, int cargoCapacity, int speed, boolean waterResistance, boolean isAfloat) {
+        super(color, fuelCapacity, seatCapacity, cargoCapacity, speed);
+        this.waterResistance = waterResistance;
+        this.isAfloat = isAfloat;
     }
+
 //  Getters...
-    public boolean hasWaterResistance() { //  Minor slow-de-buff ("rough" waters)
+    public boolean verifyWaterResistance() { //  Minor slow-de-buff
         return waterResistance;
     }
     public boolean isAfloat() {
@@ -23,16 +21,7 @@ public class Hovercraft extends Vehicle{
     public void setWaterResistance(boolean waterResistance) {
         this.waterResistance = waterResistance;
     }
-    public void setVehicleAfloat(boolean vehicleAfloat) {
-        this.isAfloat = vehicleAfloat;
-    }
-
-    //  Unique function(s)..
-    public void waterNavigation() {
-        if (waterResistance) {
-            isAfloat = true;
-        } else {
-            isAfloat = false;
-        }
+    public void setIsAfloat(boolean isAfloat) {
+        this.isAfloat = isAfloat;
     }
 }
